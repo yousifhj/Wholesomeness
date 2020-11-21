@@ -1,15 +1,20 @@
 class AppContainer {
-    activites = []
+    activities = []
     categories = []
-    aurl = ""
+    url = "http://localhost:3000"
     routinePractice = {}
 
-    getActivites() {
-        // fetch reqeust to activites
-        // render activites
+    getActivities() {
+        // fetch reqeust to activities
+        console.log("hello")
+        fetch(this.url + '/activities')
+        .then(resp => resp.json())
+        .then(data => console.log(data))
+        // render activities
+        .catch(err => alert(err))
     }
 
-    renderActivites() {
+    renderActivities() {
 
         //create DOM nodes and insert into DOM
 
