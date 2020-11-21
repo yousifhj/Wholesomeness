@@ -6,9 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Activity.create(name:"swimming")
-Activity.create(name:"running")
-Activity.create(name:"hiking")
-Activity.create(name:"jogging")
-Activity.create(name:"reading")
-Activity.create(name:"mediating")
+Category.destroy_all
+Activity.destroy_all
+
+psych = Category.create(name: "psychological")
+physical = Category.create(name: "physical")
+spiritual = Category.create(name: "spiritual")
+
+Activity.create(name:"swimming", category: physical)
+Activity.create(name:"running", category: physical)
+Activity.create(name:"hiking", category: physical)
+Activity.create(name:"jogging", category: physical)
+Activity.create(name:"reading", category: spiritual)
+Activity.create(name:"mediating", category: psych)
