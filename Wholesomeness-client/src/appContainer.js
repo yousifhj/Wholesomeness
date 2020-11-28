@@ -14,7 +14,7 @@ class AppContainer {
         let randomActivities = [];
         for (let i = 0; i < 4; i++) {
             debugger
-            randomActivities.push(this.activities[Math.floor(Math.random()*this.activities.length)])
+            randomActivities.push(AppContainer.activities[Math.floor(Math.random()*AppContainer.activities.length)])
         };
         return randomActivities;
     }
@@ -24,7 +24,11 @@ class AppContainer {
         console.log("hello");
         fetch(this.url + '/activities')
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => {
+            data.forEach(activity => {
+                new Activity(activity.name)
+            });
+        })
         // render activities
         .catch(err => alert(err));
     }
