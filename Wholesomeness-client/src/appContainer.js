@@ -27,17 +27,33 @@ class AppContainer {
         .then(data => {
             data.forEach(activity => {
                 new Activity(activity.name, activity.category)
-                console.log(AppContainer.activities)
             });
+            this.renderActivities();
         })
         // render activities
         .catch(err => alert(err));
     }
 
     renderActivities() {
-
-        //create DOM nodes and insert into DOM
-
+        const psychSelect = document.getElementById('psychological')
+        const physicalSelect = document.getElementById('physical')
+        const spiritualSelect = document.getElementById('spiritual')
+        AppContainer.activities.forEach(activity => {
+            const option = document.createElement('option');
+            option.innerText = activity.name;
+            switch(activity.category.name) {
+                case "psychological":
+                    psychSelect.appendChild(option);
+                 break;
+                case "spiritual":
+                    spiritualSelect.appendChild(option);
+                 break;
+                case "physical":
+                    physicalSelect.appendChild(option);
+                 break;
+            default:
+            }
+        })
     }
 
 }
