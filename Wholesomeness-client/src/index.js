@@ -1,2 +1,3 @@
 const app = new AppContainer
-app.getActivities()
+app.getActivities();
+app.bindEventListeners();

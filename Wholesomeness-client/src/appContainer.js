@@ -4,14 +4,18 @@ class AppContainer {
     url = "http://localhost:3000"
     routinePractice = {}
 
+    bindEventListeners() {
+        const btn = document.getElementById('createRoutinePractice');
+    }
+
     getActivities() {
         // fetch reqeust to activities
-        console.log("hello")
+        console.log("hello");
         fetch(this.url + '/activities')
         .then(resp => resp.json())
         .then(data => console.log(data))
         // render activities
-        .catch(err => alert(err))
+        .catch(err => alert(err));
     }
 
     renderActivities() {
