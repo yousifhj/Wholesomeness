@@ -26,7 +26,8 @@ class AppContainer {
         .then(resp => resp.json())
         .then(data => {
             data.forEach(activity => {
-                new Activity(activity.name)
+                new Activity(activity.name, activity.category)
+                console.log(AppContainer.activities)
             });
         })
         // render activities
