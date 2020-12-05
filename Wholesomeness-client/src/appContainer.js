@@ -16,7 +16,11 @@ class AppContainer {
         };
         new routinePractice(randomActivities) 
         const routinePracticeDiv = document.getElementById(`routinePractice`);
-        routinePracticeDiv.innerText = AppContainer.routinePractice
+        AppContainer.routinePractice.activities.forEach(routinePractice => {
+            const activityDiv = document.createElement('div');
+            activityDiv.innerText = routinePractice.name; 
+            routinePracticeDiv.appendChild(activityDiv);
+        })
     }
 
     
