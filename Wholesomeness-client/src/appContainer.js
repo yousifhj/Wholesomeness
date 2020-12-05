@@ -2,29 +2,24 @@ class AppContainer {
     static activities = []
     categories = []
     url = "http://localhost:3000"
-    routinePractice = {}
+    static routinePractice = {}
 
     bindEventListeners() {
         const btn = document.getElementById('createRoutinePractice');
         btn.addEventListener('click', this.getRandomActivities)
     }
 
-    getRoutinePractice() {
-        this.getRandomActivities
-    }
-
     getRandomActivities() {
         let randomActivities = [];
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             randomActivities.push(AppContainer.activities[Math.floor(Math.random()*AppContainer.activities.length)])
         };
-        let daily = new routinePractice(randomActivities) 
+        new routinePractice(randomActivities) 
+        const routinePracticeDiv = document.getElementById(`routinePractice`);
+        routinePracticeDiv.innerText = AppContainer.routinePractice
     }
 
-    renderRoutinePractice() {
-
-    }
-
+    
     getActivities() {
         // fetch reqeust to activities
         console.log("hello");
