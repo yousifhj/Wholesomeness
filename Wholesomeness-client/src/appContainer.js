@@ -1,6 +1,6 @@
 class AppContainer {
     static activities = []
-    categories = []
+    static categories = []
     url = "http://localhost:3000"
     static routinePractice = {}
 
@@ -11,9 +11,9 @@ class AppContainer {
 
     getRandomActivities() {
         let randomActivities = [];
-        for (let i = 0; i < 3; i++) {
-            randomActivities.push(AppContainer.activities[Math.floor(Math.random()*AppContainer.activities.length)])
-        };
+        AppContainer.categories.forEach(category => {
+            randomActivities.push(Activity.byCategory(category.name)[Math.floor(Math.random()*Activity.byCategory(category.name).length)])
+        });
         new routinePractice(randomActivities) 
         const routinePracticeDiv = document.getElementById(`routinePractice`);
         AppContainer.routinePractice.activities.forEach(routinePractice => {
