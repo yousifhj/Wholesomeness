@@ -9,14 +9,20 @@ class AppContainer {
         btn.addEventListener('click', this.getRandomActivities)
     }
 
+    getRoutinePractice() {
+        this.getRandomActivities
+    }
+
     getRandomActivities() {
-        debugger
         let randomActivities = [];
         for (let i = 0; i < 4; i++) {
-            debugger
             randomActivities.push(AppContainer.activities[Math.floor(Math.random()*AppContainer.activities.length)])
         };
-        return randomActivities;
+        let daily = new routinePractice(randomActivities) 
+    }
+
+    renderRoutinePractice() {
+
     }
 
     getActivities() {
