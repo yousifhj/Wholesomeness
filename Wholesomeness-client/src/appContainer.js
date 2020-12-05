@@ -26,18 +26,22 @@ class AppContainer {
     
     getActivities() {
         // fetch reqeust to activities
-        console.log("hello");
         fetch(this.url + '/activities')
         .then(resp => resp.json())
         .then(data => {
+            console.log(data)
             data.forEach(activity => {
                 new Activity(activity.name, activity.category)
+                if (!AppContainer.categories.map(category => category.name).includes(activity.category.name)) {
+                    new Category(activity.category.name)
+                 }
             });
+            // render activities
             this.renderActivities();
+  
         })
-        // render activities
         .catch(err => alert(err));
-    }
+    };
 
     renderActivities() {
         const psychSelect = document.getElementById('psychological')
